@@ -1,0 +1,27 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+ribbon:
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5100
+  #指的是建立连接所用的时间，适用于网络正常的情况下，两端连接所用的时间
+  ConnectTimeout: 5100
+
+feign:
+  hystrix:
+    enabled: true
+
+
+spring:
+  application:
+    name: order
+logging:
+  level:
+    cn.siwen.cloud.config.PaymentFeignService: debug
